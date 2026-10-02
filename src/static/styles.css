@@ -1,3 +1,13 @@
+:root {
+  --school-green: #7ed957;
+  --school-green-dark: #1f6f3b;
+  --school-green-deep: #0f3b27;
+  --school-white: #ffffff;
+  --school-cream: #f5fff3;
+  --school-border: #d8f6bf;
+  --school-text: #1d3a2d;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,24 +18,64 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: var(--school-text);
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f5f5f5;
+  background-color: var(--school-cream);
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(126, 217, 87, 0.14),
+    rgba(126, 217, 87, 0.14) 2px,
+    transparent 2px,
+    transparent 18px
+  );
+  animation: branch-lines 18s linear infinite;
 }
 
-header {
-  text-align: center;
-  padding: 20px 0;
+@keyframes branch-lines {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 120px 120px;
+  }
+}
+
+.site-header {
+  text-align: left;
+  padding: 24px 28px;
   margin-bottom: 30px;
-  background-color: #1a237e;
-  color: white;
-  border-radius: 5px;
+  background: linear-gradient(135deg, var(--school-green-deep), var(--school-green-dark));
+  color: var(--school-white);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(15, 59, 39, 0.2);
 }
 
-header h1 {
-  margin-bottom: 10px;
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.mascot {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  padding: 6px;
+}
+
+.site-header h1 {
+  margin-bottom: 6px;
+  color: var(--school-white);
+}
+
+.site-header h2 {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 main {
@@ -42,10 +92,11 @@ main {
 }
 
 section {
-  background-color: white;
+  background-color: var(--school-white);
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(31, 111, 59, 0.1);
+  border: 1px solid var(--school-border);
   width: 100%;
   max-width: 500px;
 }
@@ -53,21 +104,21 @@ section {
 section h3 {
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-  color: #1a237e;
+  border-bottom: 1px solid var(--school-border);
+  color: var(--school-green-dark);
 }
 
 .activity-card {
   margin-bottom: 15px;
   padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  border: 1px solid var(--school-border);
+  border-radius: 8px;
+  background-color: #f7fff2;
 }
 
 .activity-card h4 {
   margin-bottom: 10px;
-  color: #0066cc;
+  color: var(--school-green-dark);
 }
 
 .activity-card p {
@@ -83,7 +134,7 @@ section h3 {
 
 .participants-section h5 {
   margin-bottom: 8px;
-  color: #1a237e;
+  color: var(--school-green-dark);
   font-size: 16px;
 }
 
@@ -150,18 +201,20 @@ section h3 {
 }
 
 button {
-  background-color: #1a237e;
-  color: white;
+  background-color: var(--school-green-dark);
+  color: var(--school-white);
   border: none;
   padding: 10px 15px;
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 button:hover {
-  background-color: #3949ab;
+  background-color: var(--school-green);
+  color: var(--school-green-deep);
+  transform: translateY(-1px);
 }
 
 .message {
